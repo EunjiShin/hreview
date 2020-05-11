@@ -7,9 +7,9 @@
 # 1. 프로젝트 계층
 ## 1-1. 프로젝트 폴더
 ### 장고 프로젝트는 크게 프로젝트-앱으로 구성됩니다. 
-<img width="175" alt="project" src="https://user-images.githubusercontent.com/38103085/81601679-3ea5f680-9406-11ea-9156-ec1a0eeec50c.png">
+<img width="171" alt="hyuzi" src="https://user-images.githubusercontent.com/38103085/81608709-a6ae0a00-9411-11ea-971d-18747c4069f8.png">
 
-현재 hyuzi라는 제일 상위폴더 안에 프로젝트 폴더 hreview가 들어있으며, hreview 안에 임의로 만든 앱 hyuzi가 들어있습니다.
+현재 프로젝트 폴더 hreview 안에 임의로 만든 앱 hyuzi가 들어있습니다.
 <br> CBV 방식으로 로그인과 회원가입을 구현한 상태로, 앱 hyuzi에서 메인, 상품, 장바구니 등 실질적인 페이지들을 구현하게 될 겁니다. <br> 또는 새로운 앱을 추가하게 될 수도 있어요. <br>
 hreview 안에 있는 다른 친구들에 대해선 아래에서 설명하겠습니다. <br>
 <hr> <br>
