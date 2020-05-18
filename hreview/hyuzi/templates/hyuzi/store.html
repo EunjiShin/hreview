@@ -1,4 +1,5 @@
-
+<!-- 이미지 로드 -->
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -70,7 +71,7 @@
                         if(i==0) res+=" active";
                         res+="'> <div class='row'>";
                         for(var j=0; j<6; j++){
-                            res+="<div class='col-sm-2'> <img class='others' src='asset/"+type+num+".jpg'> <h4>";
+                            res+="<div class='col-sm-2'> <img class='others' src='/static/img/"+type+num+".jpg'> <h4>";
                             res+="상품명"+"<br>"+"00000￦"+"</h4>";
                             res+="<button class='glyphicon glyphicon-shopping-cart' style='background : none; border: none;'></button>";
                             res+="</div>";
@@ -87,7 +88,7 @@
                         if(i==0) res += " active";
                         res+="'> <div class='row'>";
                         for(var j=0; j<3; j++){
-                            res+="<div class='col-sm-4'> <img class='hair' src='asset/"+type+num+".jpg'> <h4>";
+                            res+="<div class='col-sm-4'> <img class='hair' src='/static/img/"+type+num+".jpg'> <h4>";
                             res+="상품명"+" | "+"000000￦"+"</h4>";
                             res+="<button class='glyphicon glyphicon-shopping-cart' style='background : none; border: none; float: right;'></button>";
                             res+="<p class='text-left' style='margin-left: 15%;'>기장 : "+"00"+"cm <br> 색상 : "+"</p>";
@@ -127,7 +128,7 @@
     </head>
     <body>
         <div>
-            <img src="asset/long%20stroe%20main.png" width="1920px" height="564px">
+            <img src="/static/img/long%20stroe%20main.png" width="1920px" height="564px">
         </div>
         <div class="store">
         <script>
