@@ -9,8 +9,11 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>  
         <style>
-            body {
-                margin: 0% 15% 0% 15%;
+            div img {
+                width: 100%;
+            }
+            div.store{
+                margin: 0% 10% 0% 10%;
             }
             img.hair {
                 width: 80%;
@@ -21,10 +24,8 @@
                 margin: 10px;
             }
             .hair.long {
-                background-color: #e9e0d1;
             }
             .hair.short, .others {
-                background-color: #c1a784;
             }
             .carousel-control.right, .carousel-control.left {
                 height: 20%;
@@ -39,10 +40,10 @@
             }
             .carousel-indicators li {
                 background-color: #ffffff;
-                border-color: #000000;
+                border-color: #e9e0d1;
             }
             .carousel-indicators li.active {
-                background-color: #ffc500;
+                background-color: #c1a784;
             }
             .item h4 {
                 
@@ -125,13 +126,18 @@
         </script>
     </head>
     <body>
+        <div>
+            <img src="asset/long%20stroe%20main.png" width="1920px" height="564px">
+        </div>
+        <div class="store">
         <script>
-            document.write("<h3>SHORT HAIR</h3>");
+            document.write("<h3 style='font-weight: 800;'>SHORT HAIR</h3>");
             print("short","shortCarousel");
-            document.write("<h3>LONG HAIR</h3>");
+            document.write("<h3 style='font-weight: 800;'>LONG HAIR</h3>");
             print("long","longCarousel");
-            document.write("<h3>OTHERS</h3>");
+            document.write("<h3 style='font-weight: 800;'>OTHERS</h3>");
             print("others","otherCarousel");
         </script>
+        </div>
     </body>
 </html>
