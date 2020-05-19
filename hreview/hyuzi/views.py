@@ -11,15 +11,21 @@ def store(request):
     categories = Category.objects.all()
     return render(request, 'hyuzi/store_wig.html', {'categories':categories})
 
-def allProduct(request, c_slug=None):
-    c_page = None
-    products = None
-    if c_slug != None:
-        c_page = get_object_or_404(Category, slug=c_slug)
-        products = Product.objects.filter(category=c_page)
-    else:
-        products = Products.objects.all()
-    return render(request, 'hyuzi/store_wig.html', {'category':c_page, 'products':products})
+def product_list(request, category_id):
+    category = get_object_or_404(Category, id=category_id)
+    product_all = Product.objects.filter(category_id=category).all()
+    page_numbers_range = 8
+    # 한 페이지에 나올 게시글 수
+    paginator = Paginator(product_all,page_numbers_range)
+    page = request.GET.get('page')
+    products = paginator.get_page(page)
+    current_page = int(page) if page else 1
+    start_index = int((current_page - 1) / page_numbers_range) * page_numbers_range
+    end_index = start_index + page_numbers_range
+    page_range = paginator.page_range[start_index:end_index]
+
+    return render(request, 'hyuzi/product_list.html',{'product_all':product_all, 'category':category, 'products':products, 'page_range':page_range, 'paginator':paginator })
+
 
 
 

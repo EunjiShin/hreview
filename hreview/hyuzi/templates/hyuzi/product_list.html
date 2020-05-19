@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+            <!-- <div class="row">
+                <div class="col-md-4"> -->
+        {% for product in products %}
+            {% if product.category == category %}
+
+                <div class="card mb-4 shadow-sm">
+                    <img src="/static/img/long1.jpg" class="card-img-top bd-placeholder-img" width="100%" height="225">
+                    <div class="card-body">
+                        <p class="card-text">{{ product.name }}</p>
+                        <p class="card-text">{{ product.price }}</p>
+                    </div>
+                </div>
+
+            {% endif %}
+        {% endfor %}
+            <!-- </div>
+        </div> -->
+</div>
+
+
+
+
+
+{% endblock content %}

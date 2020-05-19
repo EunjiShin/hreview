@@ -10,7 +10,7 @@ App_name = 'hyuzi'
 urlpatterns = [
     path('', views.main, name ='main'),
     path('store/', views.store, name='store'),
-    # path('<slug:c_slug>/', views.allProduct, name='products_by_category'),
+    path('store/product_list/<category_id>', views.product_list, name='category'),
 ] 
 
 if settings.DEBUG:

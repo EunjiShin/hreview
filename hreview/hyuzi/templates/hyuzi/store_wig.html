@@ -12,9 +12,13 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
   
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          {% for category in categories %}
-          <a class="nav-item nav-link active" href="#">{{ category.name }}</a>
-          {% endfor %}
+            <li><a class="nav-item nav-link active" href="{% url 'category' 1 %}">장발</a></li>
+            <li><a class="nav-item nav-link active" href="{% url 'category' 2 %}">미디움</a></li>
+            <li><a class="nav-item nav-link active" href="{% url 'category' 3 %}">단발</a></li>
+            <li><a class="nav-item nav-link active" href="{% url 'category' 4 %}">샴푸</a></li>
+            <li><a class="nav-item nav-link active" href="{% url 'category' 5 %}">린스</a></li>
+            <li><a class="nav-item nav-link active" href="{% url 'category' 6 %}">트리트먼트</a></li>
+            <li><a class="nav-item nav-link active" href="{% url 'category' 7 %}">왁스</a></li>
         </ul>
   
     </div>
