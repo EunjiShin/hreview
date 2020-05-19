@@ -1,5 +1,6 @@
 {% extends '../base.html'%}
 {%block content %}
+    <div class="container mt-5 pb-5" style="width: 40%">
         <form method="POST" action="{% url 'login' %}" class="sign-in-form">
             {% csrf_token %}
             <h2 class="sub-title">로그인</h2>
@@ -16,5 +17,7 @@
                 <a href="{% url 'main' %}" class="btn float-right">취소</a>
             </div>
         </form>
+  </div>
+
 
 {% endblock %}
