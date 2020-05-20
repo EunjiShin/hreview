@@ -5,8 +5,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">  
-    
+  
+
+  <style>
+        #small_nav a{
+            color :black;
+            padding-left : 20px;
+            padding-right : 20px;
+        }
+
+        #small_nav a:hover{
+            color : white;
+            background-color : gray;
+        }
+  </style>
 </head>
 <body>
   <!--  네비게이션 바  -->
@@ -17,9 +34,6 @@
     <div class="collapse navbar-collapse navbar-right" id="navbarNav">
       <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-              <a class="nav-link" href="#">STORE</a>
-          </li>
-          <li class="nav-item">
               <a class="nav-link" href="#">CUSTOMIZE</a>
           </li>
           <li class="nav-item">
@@ -28,6 +42,9 @@
         {% if user.is_authenticated %}
         <li class="nav-item">
           <a class="nav-link" href="{% url 'logout' %}">로그아웃</a>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'store' %}">스토어</a>
+          </li>
         </li>
         {% else %}
         <li class="nav-item">
@@ -35,6 +52,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'signup' %}">회원가입</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'store' %}">스토어</a>
         </li>
         {% endif %}
       </ul>
