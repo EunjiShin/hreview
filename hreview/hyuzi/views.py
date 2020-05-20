@@ -14,7 +14,7 @@ def store(request):
 def product_list(request, category_id):
     category = get_object_or_404(Category, id=category_id)
     product_all = Product.objects.filter(category_id=category).all()
-    page_numbers_range = 8
+    page_numbers_range = 9
     # 한 페이지에 나올 게시글 수
     paginator = Paginator(product_all,page_numbers_range)
     page = request.GET.get('page')
