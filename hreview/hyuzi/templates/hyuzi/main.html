@@ -46,6 +46,9 @@
         float: left;
         text-align: right;
     }
+    #developers {
+        margin-top: 3%;
+    }
 </style>
 <img src="/static/img/mainImg.png">
 <div class="container-fluid text-center">
@@ -89,7 +92,7 @@
             <div class="carousel-item active">
                 <img src="../../static/img/long-stroe-main.png" width="1920px">
                 <div class="carousel-caption">
-                    <button class="ad-link" type="button" onclick="window.open('#')">STORE</button>
+                    <button class="ad-link" type="button" onclick = "location.href='{% url 'category' 1 %}'" >STORE</button>
                 </div>
             </div>
             <div class="carousel-item">
@@ -117,7 +120,7 @@
 </div>
 
 <div class="container" id="developers">
-    <h1 style="font-weight: 800;">Developers</h1>
+    <h1 style="font-weight: 800; margin-bottom: 20px;">Developers</h1>
     <div>
         <img src="../../static/img/elephant.png" style="width:25%;height:25%;">
         <div class="member-left">
