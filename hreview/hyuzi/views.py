@@ -26,6 +26,6 @@ def product_list(request, category_id):
 
     return render(request, 'hyuzi/product_list.html',{'product_all':product_all, 'category':category, 'products':products, 'page_range':page_range, 'paginator':paginator })
 
-
-
+def cart(request):
+    return render(request, 'hyuzi/cart.html')
 

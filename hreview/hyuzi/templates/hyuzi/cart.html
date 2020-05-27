@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    #products .row {
+        width: 100%;
+        margin-top: 5%;
+        margin-bottom: 5%
+    }
+    div.row img, div.row .info {
+        margin-left: 10%;
+    }
+    form.row {
+        position: relative;
+        margin-top: 5%;
+        margin-left:50%;
+    }
+    form input {
+        border: 1px solid #ffffffff;
+        border-radius: 5px;
+        margin-right: 5%;
+        padding: 5px;
+        background-color: #e9e0d1;
+    }
+    form input:hover {
+        border: 1px solid #c1a874;
+        
+        background-color: #ffffffff;
+    }
+    @media ( max-width: 1410px ) {
+        form.row {
+            margin-left:65%;
+        }
+        form input {
+            width: 250px;
+            height: 35px;
+            display: block;
+            margin-right: 60%;
+        }
+        form span {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function all_order(){
+        var msg = "전체상품 주문을 완료하였습니다!\n";
+        msg+="총 금액 : "+"00,000"+" 원";
+        alert(msg);
+    }
+    function select_order(){
+        var msg = "선택상품 주문을 완료하였습니다!\n";
+        msg+="총 금액 : "+"00,000"+" 원";
+        alert(msg);
+    }
+</script>
+<div class="container pb-5" style="width: 50%">
+    <h1 style="color: #c1a784;">CART</h1>
+    <div id="products" style="border-bottom: 1px dashed #c1a784;">
+        <div class="row align-items-center"> 
+            <input type="checkbox">
+            <img src="../../static/img/long1.jpg" width="200px">
+            <div class="info">상품명<br>옵션<br><br>가격</div>
+        </div>
+    </div>
+    
+    <form class="row">
+        <input type="button" value="전체상품 주문" onclick="all_order();">
+        <input type="button" value="선택상품 주문" onclick="select_order();">
+        <span>총액 | 00,000</span>
+    </form>
+    
+</div>
+{% endblock content %}
