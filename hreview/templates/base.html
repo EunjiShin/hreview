@@ -45,8 +45,14 @@
           <li class="nav-item">
               <a class="nav-link" href="#">베스트</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'mypage' %}">MY PAGE</a>
+        </li>
         {% if user.is_authenticated %}
         <li class="nav-item">
+          <a class="nav-link" href="#">{{ user.nickname }}님이 로그인 중입니다.</a>
+        </li>
+        <li>
           <a class="nav-link" href="{% url 'logout' %}">로그아웃</a>
         </li>
         <li class="nav-item">
