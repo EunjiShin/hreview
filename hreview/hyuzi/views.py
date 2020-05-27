@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from .models import User, Category, Product
 from django.views.generic import ListView
+from django.contrib.auth.forms import UserChangeForm
 
 def main(request):
     return render(request, 'hyuzi/main.html')
@@ -25,6 +26,13 @@ def product_list(request, category_id):
     page_range = paginator.page_range[start_index:end_index]
 
     return render(request, 'hyuzi/product_list.html',{'product_all':product_all, 'category':category, 'products':products, 'page_range':page_range, 'paginator':paginator })
+
+
+def mypage(request):
+    return render(request, 'hyuzi/mypage.html')
+
+
+
 
 
 

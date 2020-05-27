@@ -1,10 +1,25 @@
 from django.contrib import admin
-from .models import User, Category, Product
+from . import models
+from .models import Category, Product, User
 
-@admin.register(User)
+@admin.register(models.User)
 class UserAdmin(admin.ModelAdmin):
-    pass
+    list_display = (
+        'nickname',
+        'username',
+        'email',
+        'address',
+        'phone',
+    )
 
+    list_display_links = (
+        'nickname',
+        'username',
+        'email',
+        'address',
+        'phone',
+    )
+# admin.site.register(User, UserAdmin)
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['name', 'slug']
