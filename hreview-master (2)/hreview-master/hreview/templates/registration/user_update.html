@@ -1,0 +1,60 @@
+{% extends '../base.html' %}
+{% block content %}
+
+
+<style>
+  .form-control{
+    border-radius: 17px;
+    margin-bottom: 0;
+    font-size: 10px;
+    width: 240px;
+    display: inline;
+    margin: 0 auto;
+  }
+  .form-group .te{
+    display: inline;
+  }
+  .btn{
+    display: block;
+    margin: 0 auto;
+    margin-top: 23px;
+    width: 240px;
+    border-radius: 17px;
+    background-color: #000;
+    color: #fff;
+  }
+</style>
+
+<div class="container mt-5 pb-5 text-center" style="width: 40%">
+    <form method="POST">
+        {% csrf_token %}
+        <h2>회원 정보 수정</h2><br><br>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ user_change_form.nickname.id_for_label }}">닉네임&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="text" name="{{ user_change_form.nickname.name }}" class="form-control" id="{{ user_change_form.nickname.id_for_label }}" placeholder="{{ user.nickname }}"><br><br>
+                {% for error in form.username.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+                <label for="{{ user_change_form.address.id_for_label }}">주소&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="text" name="{{ user_change_form.address.name }}" class="form-control" id="{{ user_change_form.address.id_for_label }}" placeholder="{{ user.address }}"><br><br>
+                {% for error in form.nickname.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+                <label for="{{ user_change_form.email.id_for_label }}">이메일&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="text" name="{{ user_change_form.email.name }}" class="form-control" id="{{ user_change_form.email.id_for_label }}" placeholder="{{ user.email }}"><br><br>
+                {% for error in form.email.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+                <label for="{{ user_change_form.phone.id_for_label }}">핸드폰 번호&nbsp;&nbsp;</label>
+                <input type="text" name="{{ user_change_form.phone.name }}" class="form-control" id="{{ user_change_form.phone.id_for_label }}" placeholder="{{ user.phone }}"><br><br>
+                {% for error in form.address.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+        <input type="submit" class="btn" vallue="Submit"/>
+    </form>
+</div>
+
+{% endblock%}

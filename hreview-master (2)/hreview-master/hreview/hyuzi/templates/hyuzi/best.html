@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<script type="text/javascript">
+    google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChart);
+    function drawChart()
+    {
+        var data = google.visualization.arrayToDataTable(
+            [["Goods","Rating"],["샴푸1",25],["린스3",56],["린스2",37],["트리트먼트1",71],["샴푸5",11],["샴푸2",49]]
+        );
+        var options = {
+            title: "",
+            colors: ['#cab190', '#f2b189', '#836040', '#de956d', '#b98a76', '#eed6bc']
+        };
+        var chart = new google.visualization.PieChart(document.getElementById("myChart"));
+        chart.draw(data, options);
+    }
+</script>
+  <style>
+
+    .bg-1{
+      background-color: #fff;
+    }
+    .bg-2{
+      /* background-color: #c1a784; */
+      background-color: #fff;
+      margin-left: 10%;
+    }
+    .bestimg{
+      position: static;
+      position: relative;
+      float: left;
+      margin-right: 30px;
+    }
+    }
+    #h{color: #89b7c7;} .hh{color: #cab190;}
+    #btitle, #otitle{color: #836040;}
+    .carousel-control.left{background-image:none;}
+    .carousel-control.right{background-image:none;}
+
+  </style>
+
+  <div class="container">
+   <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+     <li data-target="#myCarousel" data-slide-to="1"></li>
+     <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+<h2 id="btitle"><strong>BEST STORE</strong></h2>
+<br><br>
+    <div class="carousel-inner">
+       <div class="item active">
+       <div class="container-fluid bg-1">
+           <img class="bestimg" src="adv3.jpg" alt="sham1" width="100%" height="30%" class="img-respoinsive">
+         </div>
+      </div>
+
+      <div class="item">
+        <div class="container-fluid bg-1">
+            <img class="bestimg" src="adv2.jpg" alt="sham1" width="100%" height="30%" class="img-respoinsive">
+          </div>
+     </div>
+     <div class="item">
+       <div class="container-fluid bg-1">
+           <img class="bestimg" src="adv1.jpg" alt="sham1" width="100%" height="30%" class="img-respoinsive">
+         </div>
+     </div>
+     <br><br>
+    </div>
+  </div>
+
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+     <span class="glyphicon glyphicon-chevron-left"></span>
+     <span class="sr-only">Previous</span></a>
+     <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span></a>
+   </div>
+
+  <div class="container-fluid bg-2">
+    <h3 id="otitle"><strong>OTHERS CHART</strong></h3>
+    <div id="myChart" style="width:800px; height: 400px;"></div>
+  </div>
+{% endblock content %}
