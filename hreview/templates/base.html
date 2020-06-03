@@ -40,10 +40,10 @@
             <a class="nav-link" href="{% url 'category' 1 %}">스토어</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="#">CUSTOMIZE</a>
+              <a class="nav-link" href="#">커스텀</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="#">BEST</a>
+              <a class="nav-link" href="{% url 'best' %}">베스트</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'mypage' %}">MY PAGE</a>
@@ -54,6 +54,9 @@
         </li>
         <li>
           <a class="nav-link" href="{% url 'logout' %}">로그아웃</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'cart' %}">장바구니</a>
         </li>
         {% else %}
         <li class="nav-item">
