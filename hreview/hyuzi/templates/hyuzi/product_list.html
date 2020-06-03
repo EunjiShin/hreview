@@ -64,18 +64,18 @@
     {% if category.name == '단발' %}
     <img src="{% static 'img/short-store-main.jpg' %}" width="1920px">
     {% endif %}
-    <!--{% if category.name == '샴푸' %}
-    <img src="{% static 'img/ %}" width="1920px">
+    {% if category.name == '샴푸' %}
+    <img src="{% static 'img/' %}" width="1920px">
     {% endif %}
     {% if category.name == '린스' %}
-    <img src="{% static 'img/ %}" width="1920px">
+    <img src="{% static 'img/' %}" width="1920px">
     {% endif %}
     {% if category.name == '트리트먼트' %}
-    <img src="{% static 'img/ %}" width="1920px">
+    <img src="{% static 'img/' %}" width="1920px">
     {% endif %}
     {% if category.name == '왁스' %}
-    <img src="{% static 'img/ %}" width="1920px">
-    {% endif %} -->
+    <img src="{% static 'img/' %}" width="1920px">
+    {% endif %}
 </div>
 
 <nav class="navbar store-nav navbar-expand-lg">
@@ -119,7 +119,7 @@
           {% else %}
           <li><a class="nav-item nav-link" href="{% url 'category' 7 %}">왁스</a></li>
           {% endif %}
-          
+
       </ul>
   </div>
 </nav>
@@ -153,11 +153,11 @@
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-center">
           {% if products.has_previous %}
-          <li class="page-item"> <a class="page-link" href="?page={{ products.previous_page_number }}"><span>&laquo;</span></a> </li> 
-          {% else %} 
-          <li class="page-item disabled"><a class="page-link" href="#"><span>&laquo;</span> </a> </li> 
-          {% endif %} 
-          {% for page in paginator.page_range %} 
+          <li class="page-item"> <a class="page-link" href="?page={{ products.previous_page_number }}"><span>&laquo;</span></a> </li>
+          {% else %}
+          <li class="page-item disabled"><a class="page-link" href="#"><span>&laquo;</span> </a> </li>
+          {% endif %}
+          {% for page in paginator.page_range %}
           <li {% if posts.number == page %} class="page-item active" {% endif %}>
             <a class="page-link" href="?page={{ page }}"><span>{{ page }}</span></a>
           </li>
