@@ -33,4 +33,5 @@ def cart(request):
 def mypage(request):
     return render(request, 'hyuzi/mypage.html')
 
-
+def best(request):
+    return render(request, 'hyuzi/best.html')

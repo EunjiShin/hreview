@@ -54,18 +54,28 @@
 </style>
 
 
-
 <div>
     {% if category.name == '장발' %}
-    <img src="{% static 'img/long-stroe-main.png' %}" width="1920px">
+    <img src="{% static 'img/long-store-main.jpg' %}" width="1920px">
     {% endif %}
     {% if category.name == '미디움' %}
     <img src="{% static 'img/medium-store-main.png' %}" width="1920px">
     {% endif %}
     {% if category.name == '단발' %}
     <img src="{% static 'img/short-store-main.jpg' %}" width="1920px">
-    {% else %}
     {% endif %}
+    <!--{% if category.name == '샴푸' %}
+    <img src="{% static 'img/ %}" width="1920px">
+    {% endif %}
+    {% if category.name == '린스' %}
+    <img src="{% static 'img/ %}" width="1920px">
+    {% endif %}
+    {% if category.name == '트리트먼트' %}
+    <img src="{% static 'img/ %}" width="1920px">
+    {% endif %}
+    {% if category.name == '왁스' %}
+    <img src="{% static 'img/ %}" width="1920px">
+    {% endif %} -->
 </div>
 
 <nav class="navbar store-nav navbar-expand-lg">
@@ -95,7 +105,7 @@
           <li><a class="nav-item nav-link" href="{% url 'category' 4 %}">샴푸</a></li>
           {% endif %}
           {% if category.name == '린스' %}
-          <li><a class="nav-item nav-link" href="{% url 'category' 5 %}">린스</a></li>
+          <li><a class="nav-item nav-link active" href="{% url 'category' 5 %}">린스</a></li>
           {% else %}
           <li><a class="nav-item nav-link" href="{% url 'category' 5 %}">린스</a></li>
           {% endif %}
