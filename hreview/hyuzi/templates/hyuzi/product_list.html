@@ -119,7 +119,7 @@
           {% else %}
           <li><a class="nav-item nav-link" href="{% url 'category' 7 %}">왁스</a></li>
           {% endif %}
-          
+
       </ul>
   </div>
 </nav>
@@ -153,11 +153,11 @@
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-center">
           {% if products.has_previous %}
-          <li class="page-item"> <a class="page-link" href="?page={{ products.previous_page_number }}"><span>&laquo;</span></a> </li> 
-          {% else %} 
-          <li class="page-item disabled"><a class="page-link" href="#"><span>&laquo;</span> </a> </li> 
-          {% endif %} 
-          {% for page in paginator.page_range %} 
+          <li class="page-item"> <a class="page-link" href="?page={{ products.previous_page_number }}"><span>&laquo;</span></a> </li>
+          {% else %}
+          <li class="page-item disabled"><a class="page-link" href="#"><span>&laquo;</span> </a> </li>
+          {% endif %}
+          {% for page in paginator.page_range %}
           <li {% if posts.number == page %} class="page-item active" {% endif %}>
             <a class="page-link" href="?page={{ page }}"><span>{{ page }}</span></a>
           </li>

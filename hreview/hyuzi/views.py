@@ -78,3 +78,6 @@ def cart_detail(request, total=0, counter=0, cart_items = None):
 
 def best(request):
     return render(request, 'hyuzi/best.html')
+
+def custom(request):
+    return render(request, 'hyuzi/custom.html')
