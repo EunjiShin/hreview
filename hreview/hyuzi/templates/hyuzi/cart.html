@@ -42,6 +42,22 @@
             display: block;
         }
     }
+
+    .my_custom_table{
+        min-width: 400px;
+        font-size : 14px;
+    }
+
+    .my_custom_thread {
+        font-weight: normal;
+        text-transform : uppercase;
+        letter-spacing : .2em;
+    }
+
+    .custom_image {
+        width : 100px;
+        height : 100px;
+        }
 </style>
 
 <script>
@@ -58,19 +74,69 @@
 </script>
 <div class="container pb-5" style="width: 50%">
     <h1 style="color: #c1a784;">CART</h1>
-    <div id="products" style="border-bottom: 1px dashed #c1a784;">
-        <div class="row align-items-center"> 
-            <input type="checkbox">
-            <img src="../../static/img/long1.jpg" width="200px">
-            <div class="info">상품명<br>옵션<br><br>가격</div>
+    {% if not cart_items %}
+        <div>
+            <div class="text-center">
+                <br><h1>Your cart is empty</h1><br>
+                <p class="text-center"><a href="{% url 'store' %}">Go Store</a></p>
+            </div>
         </div>
-    </div>
-    
-    <form class="row">
-        <input type="button" value="전체상품 주문" onclick="all_order();">
-        <input type="button" value="선택상품 주문" onclick="select_order();">
-        <span>총액 | 00,000</span>
-    </form>
-    
+    {% else %}
+        <div class="row mx-auto">
+            <div class="col-12 col-sm-12 com-md-12 com-lg-6 text-center">
+                <table class="table my_custom_table">
+                    <thread class="my_custom_thread">
+                        <tr>
+                            <th colspan="5">
+                                Your items
+                            </th>
+                        </tr>
+                    </thread>
+                    <tbody>
+                        {% for cart_item in cart_items %}
+                        <tr>
+                            <td>
+                                <img src="{{cart_item.product.image.url}}" alt="" class="float-left rounded custom_image">
+                            </td>
+                            <td class="text-left">
+                                {{ cart_item.product.name }}
+                                <br>
+                                NUM : {{ cart_item.product.id }}
+                                <br>
+                                Price : {{ cart_item.product.price }}
+                                <br>
+                                Qty : {{ cart_item.quantity }} x ${{ cart_item.product.price }}
+                            </td>
+                            <td>
+                                ${{ cart_item.total_price }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-12 col-sm-12 com-md-12 com-lg-6 text-center">
+                <table class="table my_custom_table">
+                    <thread class="my_custom_thread">
+                        <tr>
+                            <th>Checkout</th>
+                        </tr>
+                    </thread>
+                    <tbody>
+                        <tr>
+                            <td>Check Please</td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">
+                                Your total is : <strong>A${{ total }}</strong>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    {% endif %}
 </div>
+
 {% endblock content %}
