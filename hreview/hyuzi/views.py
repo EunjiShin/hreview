@@ -35,3 +35,6 @@ def mypage(request):
 
 def best(request):
     return render(request, 'hyuzi/best.html')
+
+def custom(request):
+    return render(request, 'hyuzi/custom.html')

@@ -14,6 +14,7 @@ urlpatterns = [
     path('cart/', views.cart, name='cart'),
     path('mypage/', views.mypage, name='mypage'),
     path('best/', views.best, name='best'),
+    path('custom/', views.custom, name='custom'),
 ] 
 
 if settings.DEBUG:
