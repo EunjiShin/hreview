@@ -5,6 +5,7 @@ import hyuzi.views
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import get_user_model, update_session_auth_hash
 from django.contrib.auth import views as auth_views 
+from django.contrib.auth.views import LoginView
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.conf import settings
 from django.conf.urls.static import static
@@ -61,7 +62,6 @@ def change_password(request):
     else:
         password_change_form = PasswordChangeForm(request.user)
     return render(request, 'registration/change_password.html', {'password_change_form' : password_change_form})
-
 
 
 urlpatterns = [
