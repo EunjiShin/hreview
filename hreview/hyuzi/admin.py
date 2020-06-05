@@ -1,6 +1,6 @@
 from django.contrib import admin
 from . import models
-from .models import Category, Product, User
+from .models import Category, Product, User, CartItem, Cart
 
 @admin.register(models.User)
 class UserAdmin(admin.ModelAdmin):
