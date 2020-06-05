@@ -32,9 +32,11 @@
   }
 </style>
 
+
     <div class="container mt-5 pb-5 text-center" style="width: 40%">
         <form method="POST" action="{% url 'login' %}" class="sign-in-form">
             {% csrf_token %}
+            {% include "registration/form_error.html" %}
             <h2 class="sub-title">LOGIN</h2>
             <div id="group" class="form-group">
                 <label form="{{ form.username.id_for_label }}"></label>
