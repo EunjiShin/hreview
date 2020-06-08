@@ -1,0 +1,243 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style> 
+    .drag {
+        position:relative;
+        cursor:hand;
+        z-index: 100;
+    }
+    
+    .face-nav {
+        float: right;
+        margin: 9% 20% 9% 20%;
+    }
+    .face-nav .nav-link {
+        text-decoration: none;
+        color: #000;
+        background-color: #e9e0d1;
+    }
+    
+    .bang {
+        z-index: 300;
+    }
+    .side {
+        z-index: 200;
+    }
+    .nav-pieces {
+        border: 2px solid #e9e0d1;
+        border-radius: 10px 10px 0 0;
+        background-color: white;
+        margin: 10px 10% 0 10%;
+    }
+    #pieces {
+        background-color: #e9e0d1;
+        margin: 0 10% 0 10%;
+        
+    }   
+    
+    .custom-nav .nav-link{
+        text-decoration: none;
+        color: #c1a784;
+        font-size: 1.3em;
+        margin: 0 40px 0 40px;
+    }
+    .custom-nav .nav-link:hover {
+        background-color: rgba(193,167,132,0.5);
+        color: #ffffff;
+    }
+    .custom-nav .nav-link.active {
+        text-decoration: noen;
+        padding: 8px;
+        vertical-align: center;
+        font-size: 1.3em;
+        background-color: rgba(193,167,132);
+        color: #ffffff;
+    }
+    
+</style>
+
+
+<script>
+var dragobject= {
+    z: 0, x: 0, y: 0, offsetx : null, offsety : null, targetobj : null, dragapproved : 0,
+    initialize:function(){
+        document.onmousedown=this.drag
+        document.onmouseup=function(){this.dragapproved=0}
+    },
+    drag:function(e){
+        var evtobj=window.event? window.event : e
+        this.targetobj=window.event? event.srcElement : e.target
+        if ((this.targetobj.className=="drag bang") || (this.targetobj.className=="drag back") || (this.targetobj.className=="drag side")){
+            this.dragapproved=1
+            if (isNaN(parseInt(this.targetobj.style.left))){this.targetobj.style.left=0}
+            if (isNaN(parseInt(this.targetobj.style.top))){this.targetobj.style.top=0}
+            this.offsetx=parseInt(this.targetobj.style.left)
+            this.offsety=parseInt(this.targetobj.style.top)
+            this.x=evtobj.clientX
+            this.y=evtobj.clientY
+            if (evtobj.preventDefault)
+                evtobj.preventDefault()
+            document.onmousemove=dragobject.moveit
+        }
+    },
+    moveit:function(e){
+        var evtobj=window.event? window.event : e
+        if (this.dragapproved==1){
+            this.targetobj.style.left=this.offsetx+evtobj.clientX-this.x+"px"
+            this.targetobj.style.top=this.offsety+evtobj.clientY-this.y+"px"
+            return false
+        }
+    }
+}
+dragobject.initialize()
+    
+// 얼굴형을 선택하는 함수
+function selectFace(obj) {       
+    switch (obj) {
+        case 'circle':
+            document.getElementById("result").innerHTML = "<img src='/static/img/circle.png' id='circle' width='300px'>";
+                break;
+        case 'rectangle': 
+            document.getElementById("result").innerHTML = "<img src='/static/img/rectangle.png' id='rectangle' width='300px'>";
+                break;
+        case 'oval': 
+            document.getElementById("result").innerHTML = "<img src='/static/img/oval.png' id='oval' width='300px'>";
+                break;
+        default: 
+            document.getElementById("result").innerHTML = ""; 
+            break;
+    }
+}
+
+// pieces image store
+    var black_bang = ["../../static/img/bang1.png", "../../static/img/bang2.png"];
+    var black_side = ["../../static/img/bang3.png"];
+    var black_back = ["../../static/img/bang4.png"];
+    
+    var pink_bang =["../../static/img/long1.jpg", "../../static/img/long2.jpg"];
+    var pink_side = ["../../static/img/short1.jpg"];
+    var pink_back = ["../../static/img/long3.jpg"];
+    
+    var purple_bang = ["../../static/img/others1.jpg"];
+    var purple_side = ["../../static/img/others2.jpg"];
+    var purple_back = ["../../static/img/others3.jpg", "../../static/img/others4.jpg"];
+    
+    var green_bang = ["../../static/img/tiger.png"];
+    var green_side = ["../../static/img/rabbit.png"];
+    var green_back = ["../../static/img/elephant.png"];
+    
+// 이미지 띄우는 함수
+    function change(color) {
+        var imageCode="";
+        if(color=="black"){
+            for(var i=0; i<black_bang.length; i++) {
+                imageCode+="<img class='drag bang' src='";
+                imageCode+=black_bang[i];
+                imageCode+="' width='300px'>";
+            }
+            for(var i=0; i<black_side.length; i++) {
+                imageCode+="<img class='drag side' src='";
+                imageCode+=black_side[i];
+                imageCode+="' width='300px'>";
+            }
+            for(var i=0; i<black_back.length; i++) {
+                imageCode+="<img class='drag back' src='";
+                imageCode+=black_back[i];
+                imageCode+="' width='300px'>";
+            }
+        }
+        else if(color=="pink") {
+            for(var i=0; i<pink_bang.length; i++) {
+                imageCode+="<img class='drag bang' src='";
+                imageCode+=pink_bang[i];
+                imageCode+="' width='300px'>";
+            }
+            for(var i=0; i<pink_side.length; i++) {
+                imageCode+="<img class='drag side' src='";
+                imageCode+=pink_side[i];
+                imageCode+="' width='300px'>";
+            }
+            for(var i=0; i<pink_back.length; i++) {
+                imageCode+="<img class='drag back' src='";
+                imageCode+=pink_back[i];
+                imageCode+="' width='300px'>";
+            }
+        }
+        else if(color=="purple") {
+            for(var i=0; i<purple_bang.length; i++) {
+                imageCode+="<img class='drag bang' src='";
+                imageCode+=purple_bang[i];
+                imageCode+="' width='300px'>";
+            }
+            for(var i=0; i<purple_side.length; i++) {
+                imageCode+="<img class='drag side' src='";
+                imageCode+=purple_side[i];
+                imageCode+="' width='300px'>";
+            }
+            for(var i=0; i<purple_back.length; i++) {
+                imageCode+="<img class='drag back' src='";
+                imageCode+=purple_back[i];
+                imageCode+="' width='300px'>";
+            }
+        }
+        else {
+            for(var i=0; i<green_bang.length; i++) {
+                imageCode+="<img class='drag bang' src='";
+                imageCode+=green_bang[i];
+                imageCode+="' width='300px'>";
+            }
+            for(var i=0; i<green_side.length; i++) {
+                imageCode+="<img class='drag side' src='";
+                imageCode+=green_side[i];
+                imageCode+="' width='300px'>";
+            }
+            for(var i=0; i<green_back.length; i++) {
+                imageCode+="<img class='drag back' src='";
+                imageCode+=green_back[i];
+                imageCode+="' width='300px'>";
+            }
+        }
+        
+        document.getElementById("pieces").innerHTML = imageCode;
+    }
+</script>
+
+<div class="text-center" id="result"><img src='/static/img/oval.png' id='oval' width='300px'></div>
+
+<nav class="nav-pieces navbar custom-nav navbar-expand-lg" style="clear: both;">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-center" id="navbarTogglerDemo01">
+      <ul class="navbar-nav">
+          <li class="nav-link" onclick="change('black');">black</li>
+          <li class="nav-link" onclick="change('pink');">pink</li>
+          <li class="nav-link" onclick="change('purple');">purple</li>
+          <li class="nav-link" onclick="change('green');">dark green</li>
+      </ul>
+    <span style="float: right;">
+        <select onChange="selectFace(this.value);">
+            <option value="">얼굴형 선택</option>
+            <option value="circle">둥근 얼굴</option>
+            <option value="rectangle">각진 얼굴</option>
+            <option value="oval">계란형 얼굴</option>
+        </select>
+    </span>
+      <span>
+        
+      </span>
+  </div>
+</nav>
+
+
+<div id="pieces">
+    <script>
+    change('black');
+    </script>
+</div>
+
+
+{% endblock content %}
