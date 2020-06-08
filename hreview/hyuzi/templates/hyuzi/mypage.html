@@ -14,6 +14,7 @@
     color: #000;
   }
   .con{
+    width: 100%;
     background: #e9e0d1;
     padding-top: 34px;
     padding-bottom: 30px;
@@ -36,17 +37,16 @@
 </style>
 {% if user.is_authenticated %}
 
-<br>
 <div class="con text-center">
   <h2>MY PAGE</h2>
 </div>
-
+<br>
 <p id="hi"><span class="beige">>></span><strong>{{user.nickname}}</strong>님 안녕하세요!<span class="beige"><<</span></p>
 <br><hr class="hr">
-<div class="row">
+<div class="row" style="width: 100%;">
   <div class="col-sm-3"> </div>
   <div class="col-sm-3">
-    <img src="/static/img/user.png" width="240dp" height="240dp">
+    <img src="/static/img/haribo.png" width="240dp" height="240dp">
   </div>
   <div class="col-sm-3">
     <p>아이디 : {{user.username}}</p><br>
@@ -57,7 +57,7 @@
   <div class="col-sm-3"></div>
 </div>
 <br><hr class="hr">
-<div class="text-center">
+<div class="text-center" style="width: 100%;">
 <button type="submit" class="btn text-black"><a href="{% url 'user_update' %}" style="color: #000">개인정보 수정</a></button>
 <button type="submit" class="btn"><a href="{% url 'change_password' %}" style="color: #000">비밀번호 수정</a></button>
 </div>
