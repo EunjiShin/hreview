@@ -44,14 +44,44 @@ function stopDrag(){
 document.onmousemove = null;
 document.onmouseup = null;
 }
+
+// 얼굴형을 선택하는 함수
+function selectFace(obj) {       
+    switch (obj) {
+        case 'circle':
+            document.getElementById("result").innerHTML = "<img src='/static/img/circle.png' id='circle'>";
+                break;
+        case 'rectangle': 
+            document.getElementById("result").innerHTML = "<img src='/static/img/rectangle.png' id='rectangle'>";
+                break;
+        case 'oval': 
+            document.getElementById("result").innerHTML = "<img src='/static/img/oval.png' id='oval'>";
+                break;
+        default: 
+            document.getElementById("result").innerHTML = ""; 
+            break;
+    }
+}
 </script>
 
+<div style="float:left">
 <div style="position:absolute; left:0px; top:50px; cursor:pointer; cursor:hand; border:0" onmousedown="startDrag(event, this)">
 마우스를 이미지에 클릭하면 startDrag의 함수가 시작 됩니다
 </div>
 
 <div style="position:absolute; left:0px; top:50px; cursor:pointer; cursor:hand; border:0" onmousedown="startDrag(event, this)">
-<img src="../../static/img/long1.jpg" width="300px">
+<img src="../../static/img/hair_custom/short1.png" width="600px">
+</div>
 </div>
 
+<div style="float:right; margin-right:400px;">
+    <select onChange="selectFace(this.value);">
+        <option value="">얼굴형 선택</option>
+        <option value="circle">둥근 얼굴</option>
+        <option value="rectangle">각진 얼굴</option>
+        <option value="oval">계란형 얼굴</option>
+    </select>
+</div>
+
+<div id="result" style="float:right; margin-right:300px;"></div>
 {% endblock content %}
