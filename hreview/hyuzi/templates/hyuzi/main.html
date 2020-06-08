@@ -90,7 +90,7 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="../../static/img/long-stroe-main.png" width="1920px">
+                <img src="../../static/img/long-store-main.jpg" width="1920px">
                 <div class="carousel-caption">
                     <button class="ad-link" type="button" onclick = "location.href='{% url 'category' 1 %}'" >STORE</button>
                 </div>
@@ -98,13 +98,13 @@
             <div class="carousel-item">
                 <img src="../../static/img/medium-store-main.png" width="1920px">
                 <div class="carousel-caption">
-                    <button class="ad-link" type="button" onclick="window.open('#')">CUSTOMIZE</button>
+                    <button class="ad-link" type="button" onclick="location.href='{% url 'custom'  %}'">CUSTOMIZE</button>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="../../static/img/short-store-main.jpg" width="1920px">
                 <div class="carousel-caption">
-                    <button class="ad-link" type="button" onclick="window.open('#')">BEST</button>
+                    <button class="ad-link" type="button" onclick="location.href='{% url 'best' %}'">BEST</button>
                 </div>
             </div>
         </div>
