@@ -7,7 +7,8 @@
     border-radius: 17px;
     margin-bottom: 0;
     font-size: 10px;
-    width: 240px;
+    width: 280px;
+    height: 40px;
     display: inline;
     margin: 0 auto;
   }
@@ -18,17 +19,18 @@
     display: block;
     margin: 0 auto;
     margin-top: 23px;
-    width: 240px;
+    width: 280px;
+    height: 40px;
     border-radius: 17px;
-    background-color: #000;
-    color: #fff;
+    background-color: #e9e0d1;
+    color: #000;
   }
 </style>
 
 <div class="container mt-5 pb-5 text-center" style="width: 40%">
     <form method="POST">
         {% csrf_token %}
-        <h2>회원 정보 수정</h2><br><br>
+        <h2 style="color: #c1a784">회원 정보 수정</h2><br><br>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="form-group">
