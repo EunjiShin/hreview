@@ -9,7 +9,8 @@
     border-radius: 17px;
     margin-bottom: 0;
     font-size: 10px;
-    width: 240px;
+    width: 280px;
+    height: 40px;
     display: inline;
     margin: 0 auto;
   }
@@ -21,15 +22,19 @@
     display: block;
     margin: 0 auto;
     margin-top: 23px;
-    width: 240px;
+    width: 280px;
+    height: 40px;
     border-radius: 17px;
+    border-color: #e9e0d1;
+    background-color: #e9e0d1;
+    color: #000;
   }
 
 </style>
 
 <div class="container mt-5 pb-5 text-center" style="width: 50%">
 <div class="container mt-5">
-    <h1>JOIN</h1>
+    <h1 style="color: #c1a784">JOIN</h1><br><br>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="form-group">
@@ -63,7 +68,7 @@
             {% for error in form.password1.errors %}
                 <p>{{ error }}</p>
             {% endfor %}
-        </div>    
+        </div>
         <!-- </div>
         <div class="form-group"> -->
             <label class="te" for="{{ form.password2.id_for_label }}">비밀번호 확인&nbsp</label>
