@@ -1,0 +1,84 @@
+{% extends '../base.html' %}
+
+{% block title %}<title>회원가입</title>{% endblock %}
+
+{% block content %}
+
+<style>
+  .form-control{
+    border-radius: 17px;
+    margin-bottom: 0;
+    font-size: 10px;
+    width: 280px;
+    height: 40px;
+    display: inline;
+    margin: 0 auto;
+  }
+  .form-group .te{
+    display: inline;
+  }
+
+  .btn{
+    display: block;
+    margin: 0 auto;
+    margin-top: 23px;
+    width: 280px;
+    height: 40px;
+    border-radius: 17px;
+    border-color: #e9e0d1;
+    background-color: #e9e0d1;
+    color: #000;
+  }
+
+</style>
+
+<div class="container mt-5 pb-5 text-center" style="width: 50%">
+<div class="container mt-5">
+    <h1 style="color: #c1a784">JOIN</h1><br><br>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label class="te" for="{{ form.username.id_for_label }}">아이디&nbsp</label>
+            <input type="text" name="{{ form.username.name }}" class="form-control" id="{{ form.username.id_for_label }}" placeholder="아이디를 입력해주세요"><br><br>
+            {% for error in form.username.errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+            <label class="te" for="{{ form.nickname.id_for_label }}">닉네임&nbsp</label>
+            <input type="text" name="{{ form.nickname.name }}" class="form-control" id="{{ form.nickname.id_for_label }}" placeholder="닉네임을 입력해주세요"><br><br>
+            {% for error in form.nickname.errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+            <label class="te" for="{{ form.email.id_for_label }}">이메일&nbsp</label>
+            <input type="text" name="{{ form.email.name }}" class="form-control" id="{{ form.email.id_for_label }}" placeholder="이메일을 입력해주세요"><br><br>
+            {% for error in form.email.errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+            <label class="te" for="{{ form.address.id_for_label }}">주소&nbsp&nbsp</label>
+            <input type="text" name="{{ form.address.name }}" class="form-control" id="{{ form.address.id_for_label }}" placeholder="주소를 입력해주세요"><br><br>
+            {% for error in form.address.errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+            <label class="te" for="{{ form.phone.id_for_label }}">연락처&nbsp</label>
+            <input type="text" name="{{ form.phone.name }}" class="form-control" id="{{ form.phone.id_for_label }}" placeholder="핸드폰 번호를 입력해주세요"><br><br>
+            {% for error in form.phone.errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+            <label class="te" for="{{ form.password1.id_for_label }}">비밀번호&nbsp</label>
+            <input type="password" name="{{ form.password1.name }}" class="form-control" id="{{ form.password1.id_for_label }}" placeholder="비밀번호를 입력해주세요"><br><br>
+            {% for error in form.password1.errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+        <!-- </div>
+        <div class="form-group"> -->
+            <label class="te" for="{{ form.password2.id_for_label }}">비밀번호 확인&nbsp</label>
+            <input type="password" name="{{ form.password2.name }}" class="form-control" id="{{ form.password2.id_for_label }}" placeholder="비밀번호를 한번 더 입력해주세요"><br><br>
+            {% for error in form.password2.errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+        <button type="submit" class="btn btn-dark center">회원가입</button>
+    </form>
+</div>
+</div>
+{% endblock%}
