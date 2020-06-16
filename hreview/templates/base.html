@@ -24,7 +24,7 @@
             color : white;
             background-color : gray;
         }
-      
+
         .jumbotron{
           background-color: #fff;
         }
@@ -32,6 +32,11 @@
         .centered{
           width: 100%;
           text-align: center;
+          font-size: 1.4em;
+        }
+
+        .centered li{
+          padding-right: 10px;
         }
 
         #footer{
@@ -39,7 +44,7 @@
           margin-top: 100px;
           bottom: 100;
           width: 100%;
-          height: 25%;
+          /* height: 40%; */
           background: #e9e0d1;
           padding: 2% 3% 2% 3%;
         }
@@ -48,8 +53,8 @@
           border: none;
           border-radius: 5px;
         }
-
   </style>
+
 </head>
 <body>
   <!--  네비게이션 바  -->
@@ -74,21 +79,31 @@
           <li class="nav-item">
               <a class="nav-link" href="{% url 'best' %}">베스트</a>
           </li>
+          {% if user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link" href="{% url 'mypage' %}">MY PAGE</a>
-        </li>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" onclick="alert('로그인이 필요한 기능입니다.');" href="{% url 'login' %}">MY PAGE</a>
+          </li>
+          {% endif %}
+          {% if item_count > 0 %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'cart_detail' %}">장바구니({{ item_count}})</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'cart_detail' %}">장바구니</a>
+          </li>
+          {% endif %}
         {% if user.is_authenticated %}
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="#">{{ user.nickname }}님이 로그인 중입니다.</a>
-        </li>
+        </li> -->
         <li>
           <a class="nav-link" href="{% url 'logout' %}">로그아웃</a>
         </li>
-        {% if item_count > 0 %}
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'cart_detail' %}">장바구니({{ item_count}})</a>
-        </li>
-        {% endif %}
         {% else %}
         <li class="nav-item">
           <a class="nav-link" href="{% url 'login' %}">로그인</a>
@@ -107,6 +122,7 @@
     </div>
 
     <div id="footer">
+
       <div class="row">
         <div class="col-sm-6">
         <i style="font-size:25px;" class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;
@@ -118,16 +134,32 @@
           이메일: pmis118@naver.com | Copyright 2020 .Team Hyuji.All rights reserved.<br>
         </div>
         <div class="col-sm-6">
-          <input type="text" style="width:40%;" placeholder="Name">&nbsp;&nbsp;
-          <input type="text" style="width:40%;" placeholder="Email"><br>
-          <input type="text" style="width:100%; height:60%" placeholder="Comment"><br><br>
-          <button type="submit" id="send">Send</button>
+          <div id="map" style="width:100%; height:100%"></div>
+          <script>
+          function myMap(){
+            var mapCanvas = document.getElementById("map");
+            var myCenter = new google.maps.LatLng(36.629204, 127.456361);
+
+            var mapOptions = {
+             center: myCenter,
+             zoom: 5
+            };
+           var map = new google.maps.Map(mapCanvas, mapOptions);
+
+           var marker = new google.maps.Marker({
+             position:myCenter,
+             animation:google.maps.Animation.BOUNCE,
+           });
+           marker.setMap(map);
+          }
+          </script>
         </div>
-      </div>
     </div>
+  </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/a88b774f21.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQH2XnuKicPOtVcC_t_9RweineWkssZt4&callback=myMap"></script>
 </body>
 </html>
