@@ -7,14 +7,20 @@
     .drag {
         position:relative;
         cursor:hand;
-        z-index: 100;
     }
 
+    .back {
+        z-index: 0;
+    }
     .bang {
         z-index: 300;
     }
     .side {
         z-index: 200;
+    }
+    .face {
+        position:relative;
+        z-index: 100;
     }
     .nav-pieces {
         border: 2px solid #e9e0d1;
@@ -87,13 +93,13 @@ dragobject.initialize()
 function selectFace(obj) {       
     switch (obj) {
         case 'circle':
-            document.getElementById("result").innerHTML = "<img src='/static/img/circle.png' id='circle' width='300px'>";
+            document.getElementById("result").innerHTML = "<img class='face' src='/static/img/circle.png' id='circle' width='300px'>";
                 break;
         case 'rectangle': 
-            document.getElementById("result").innerHTML = "<img src='/static/img/rectangle.png' id='rectangle' width='300px'>";
+            document.getElementById("result").innerHTML = "<img class='face' src='/static/img/rectangle.png' id='rectangle' width='300px'>";
                 break;
         case 'oval': 
-            document.getElementById("result").innerHTML = "<img src='/static/img/oval.png' id='oval' width='300px'>";
+            document.getElementById("result").innerHTML = "<img class='face' src='/static/img/oval.png' id='oval' width='300px'>";
                 break;
         default: 
             document.getElementById("result").innerHTML = ""; 
@@ -102,9 +108,9 @@ function selectFace(obj) {
 }
 
 // pieces image store
-    var black_bang = ["../../static/img/bang1.png", "../../static/img/bang2.png"];
-    var black_side = ["../../static/img/bang3.png"];
-    var black_back = ["../../static/img/bang4.png"];
+    var black_bang = ["../../static/img/bang1.png", "../../static/img/bang2.png","../../static/img/bang3.png","../../static/img/bang4.png","../../static/img/bang5.png","../../static/img/bang6.png"];
+    var black_side = ["../../static/img/side1.png","../../static/img/side2.png","../../static/img/side3.png","../../static/img/side4.png","../../static/img/side5.png","../../static/img/side6.png"];
+    var black_back = ["../../static/img/back1.png","../../static/img/back2.png","../../static/img/back3.png","../../static/img/back4.png","../../static/img/back5.png","../../static/img/back6.png","../../static/img/back7.png"];
     
     var pink_bang =["../../static/img/long1.jpg", "../../static/img/long2.jpg"];
     var pink_side = ["../../static/img/short1.jpg"];
@@ -200,8 +206,7 @@ function selectFace(obj) {
 </script>
 
 <div id="all">
-<div class="text-center" id="result"><img src='/static/img/oval.png' id='oval' width='300px'></div>
-
+<div class="text-center" id="result"><img class='face' src='/static/img/oval.png' id='oval' width='300px'></div>
 <nav class="nav-pieces navbar custom-nav navbar-expand-lg" style="clear: both;">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
