@@ -29,9 +29,8 @@
         margin: 10px 10% 0 10%;
     }
     #pieces {
-        background-color: #e9e0d1;
         margin: 0 10% 0 10%;
-        
+        background-color: #e9e0d1;
     }   
     
     .custom-nav .nav-link{
@@ -53,6 +52,53 @@
         color: #ffffff;
     }
     
+    .maneking {
+        border: 2px solid #e9e0d1;
+        border-radius: 10px 10px 0 0;
+        margin: 10px 10% 0 10%;
+    }
+
+    .hair{
+        position:relative;
+        cursor:hand;
+    }
+
+    .pink{
+        -webkit-filter: opacity(.7) drop-shadow(0 0 0 rgb(255, 33, 207));
+        filter : opacity(.7) drop-shadow(0 0 0 rgb(255, 33, 207));
+        position:relative;
+        cursor:hand;
+    }
+
+    .green{
+        -webkit-filter: opacity(.7) drop-shadow(0 0 0 rgb(33, 255, 33));
+        filter : opacity(.7) drop-shadow(0 0 0 rgb(33, 255, 33));
+        position:relative;
+        cursor:hand;
+    }
+
+    .black{
+        -webkit-filter: opacity(1) drop-shadow(0 0 0 rgb(0, 0, 0));
+        filter : opacity(1) drop-shadow(0 0 0 rgb(0, 0, 0));
+        position:relative;
+        cursor:hand;
+    }
+
+    .purple{
+        -webkit-filter: opacity(.7) drop-shadow(0 0 0 rgb(64, 1, 100));
+        filter : opacity(.7) drop-shadow(0 0 0 rgb(64, 1, 100));
+        position:relative;
+        cursor:hand;
+    }
+
+    .btn{
+        width: 300px;
+        height: 40px;
+        display: block;
+        margin: 0 auto;
+        border-radius: 17px;
+        background:#e9e0d1;
+    }
 </style>
 
 <script>
@@ -65,7 +111,7 @@ var dragobject= {
     drag:function(e){
         var evtobj=window.event? window.event : e
         this.targetobj=window.event? event.srcElement : e.target
-        if ((this.targetobj.className=="drag bang") || (this.targetobj.className=="drag back") || (this.targetobj.className=="drag side")){
+        if ((this.targetobj.className=="hair") || (this.targetobj.className=="black") || (this.targetobj.className=="pink") || (this.targetobj.className=="green") || (this.targetobj.className=="purple") ){
             this.dragapproved=1
             if (isNaN(parseInt(this.targetobj.style.left))){this.targetobj.style.left=0}
             if (isNaN(parseInt(this.targetobj.style.top))){this.targetobj.style.top=0}
@@ -88,6 +134,56 @@ var dragobject= {
     }
 }
 dragobject.initialize()
+
+    
+
+function func2(color){
+    var img = document.getElementsByClassName('hair');
+    var img1 = document.getElementsByClassName('black');
+    var img2 = document.getElementsByClassName('pink');
+    var img3 = document.getElementsByClassName('purple');
+    var img4 = document.getElementsByClassName('green');
+    
+
+    for(var i=0; i<img.length; i++) {
+        img[i].className=color.toString();
+    }
+    for(var i=0; i<img1.length; i++) {
+        img1[i].className=color.toString();    
+    }
+    for(var i=0; i<img2.length; i++) {
+        img2[i].className=color.toString();
+    }
+    for(var i=0; i<img3.length; i++) {
+        img3[i].className=color.toString();
+    }
+    for(var i=0; i<img4.length; i++) {
+        img4[i].className=color.toString();
+    }
+                    
+}
+
+function changecolor(color){
+    var img = document.getElementsByClassName('hair');
+    var img1 = document.getElementsByClassName('black');
+    var img2 = document.getElementsByClassName('pink');
+    var img3 = document.getElementsByClassName('purple');
+    var img4 = document.getElementsByClassName('green');
+
+    if(color=="black"){
+        func2('black');
+    }
+    else if(color == "pink"){
+        func2('pink');
+    }
+    else if(color == "purple"){
+        func2('purple');
+    }
+    else{
+        func2('green');
+    }
+}
+
     
 // 얼굴형을 선택하는 함수
 function selectFace(obj) {       
@@ -111,87 +207,23 @@ function selectFace(obj) {
     var black_bang = ["../../static/img/bang1.png", "../../static/img/bang2.png", "../../static/img/bang3.png", "../../static/img/bang4.png", "../../static/img/bang5.png"];
     var black_side = ["../../static/img/side1.png", "../../static/img/side2.png", "../../static/img/side3.png", "../../static/img/side4.png", "../../static/img/side5.png"];
     var black_back = ["../../static/img/back1.png", "../../static/img/back2.png", "../../static/img/back3.png", "../../static/img/back4.png", "../../static/img/back5.png"];
-    
-    var pink_bang =["../../static/img/bang1pink.png", "../../static/img/bang2pink.png", "../../static/img/bang3pink.png", "../../static/img/bang4pink.png", "../../static/img/bang5pink.png"];
-    var pink_side = ["../../static/img/side1pink.png", "../../static/img/side2pink.png", "../../static/img/side3pink.png", "../../static/img/side4pink.png", "../../static/img/side5pink.png"];
-    var pink_back = ["../../static/img/back1pink.png", "../../static/img/back2pink.png", "../../static/img/back3pink.png", "../../static/img/back4pink.png", "../../static/img/back5pink.png"];
-    
-    var purple_bang = ["../../static/img/bang1purple.png", "../../static/img/bang2purple.png", "../../static/img/bang3purple.png", "../../static/img/bang4purple.png", "../../static/img/bang5purple.png"];
-    var purple_side = ["../../static/img/side1purple.png", "../../static/img/side2purple.png", "../../static/img/side3purple.png", "../../static/img/side4purple.png", "../../static/img/side5purple.png"];
-    var purple_back = ["../../static/img/back1purple.png", "../../static/img/back2purple.png", "../../static/img/back3purple.png", "../../static/img/back4purple.png", "../../static/img/back5purple.png"];
-    
-    var green_bang = ["../../static/img/bang1green.png", "../../static/img/bang2green.png", "../../static/img/bang3green.png", "../../static/img/bang4green.png", "../../static/img/bang5green.png"];
-    var green_side = ["../../static/img/side1green.png", "../../static/img/side2green.png", "../../static/img/side3green.png", "../../static/img/side4green.png", "../../static/img/side5green.png"];
-    var green_back = ["../../static/img/back1green.png", "../../static/img/back2green.png", "../../static/img/back3green.png", "../../static/img/back4green.png", "../../static/img/back5green.png"];
-    
 // 이미지 띄우는 함수
     function change(color) {
         var imageCode="";
         if(color=="black"){
             for(var i=0; i<black_bang.length; i++) {
-                imageCode+="<img class='drag bang' src='";
+                imageCode+="<img class='hair' src='";
                 imageCode+=black_bang[i];
                 imageCode+="' width='300px'>";
             }
             for(var i=0; i<black_side.length; i++) {
-                imageCode+="<img class='drag side' src='";
+                imageCode+="<img class='hair' src='";
                 imageCode+=black_side[i];
                 imageCode+="' width='300px'>";
             }
             for(var i=0; i<black_back.length; i++) {
-                imageCode+="<img class='drag back' src='";
+                imageCode+="<img class='hair' src='";
                 imageCode+=black_back[i];
-                imageCode+="' width='300px'>";
-            }
-        }
-        else if(color=="pink") {
-            for(var i=0; i<pink_bang.length; i++) {
-                imageCode+="<img class='drag bang' src='";
-                imageCode+=pink_bang[i];
-                imageCode+="' width='300px'>";
-            }
-            for(var i=0; i<pink_side.length; i++) {
-                imageCode+="<img class='drag side' src='";
-                imageCode+=pink_side[i];
-                imageCode+="' width='300px'>";
-            }
-            for(var i=0; i<pink_back.length; i++) {
-                imageCode+="<img class='drag back' src='";
-                imageCode+=pink_back[i];
-                imageCode+="' width='300px'>";
-            }
-        }
-        else if(color=="purple") {
-            for(var i=0; i<purple_bang.length; i++) {
-                imageCode+="<img class='drag bang' src='";
-                imageCode+=purple_bang[i];
-                imageCode+="' width='300px'>";
-            }
-            for(var i=0; i<purple_side.length; i++) {
-                imageCode+="<img class='drag side' src='";
-                imageCode+=purple_side[i];
-                imageCode+="' width='300px'>";
-            }
-            for(var i=0; i<purple_back.length; i++) {
-                imageCode+="<img class='drag back' src='";
-                imageCode+=purple_back[i];
-                imageCode+="' width='300px'>";
-            }
-        }
-        else {
-            for(var i=0; i<green_bang.length; i++) {
-                imageCode+="<img class='drag bang' src='";
-                imageCode+=green_bang[i];
-                imageCode+="' width='300px'>";
-            }
-            for(var i=0; i<green_side.length; i++) {
-                imageCode+="<img class='drag side' src='";
-                imageCode+=green_side[i];
-                imageCode+="' width='300px'>";
-            }
-            for(var i=0; i<green_back.length; i++) {
-                imageCode+="<img class='drag back' src='";
-                imageCode+=green_back[i];
                 imageCode+="' width='300px'>";
             }
         }
@@ -203,41 +235,63 @@ function selectFace(obj) {
     function func1(){
         alert("로그인이 필요한 기능입니다.");
     }
+
 </script>
 
 <div id="all">
-<div class="text-center" id="result"><img class='face' src='/static/img/oval.png' id='oval' width='300px'></div>
-<nav class="nav-pieces navbar custom-nav navbar-expand-lg" style="clear: both;">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse justify-content-center" id="navbarTogglerDemo01">
-      <ul class="navbar-nav">
-          <li class="nav-link" onclick="change('black');">black</li>
-          <li class="nav-link" onclick="change('pink');">pink</li>
-          <li class="nav-link" onclick="change('purple');">purple</li>
-          <li class="nav-link" onclick="change('green');">dark green</li>
-      </ul>
-        <select onChange="selectFace(this.value);" style="margin-left: 20%;">
-            <option value="">얼굴형 선택</option>
-            <option value="circle">둥근 얼굴</option>
-            <option value="rectangle">각진 얼굴</option>
-            <option value="oval">계란형 얼굴</option>
-        </select>
-        &nbsp;&nbsp;
-        {% if user.is_authenticated %}
-        <a href="{% url 'add_cart' 12 %}"><svg class="bi bi-cart3" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-        </svg></a>
-      {% else %}
-      <a onclick="func1();"><svg class="bi bi-cart3" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-        </svg></a>
-      {% endif %}
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <a id="save" onclick="partShot();" style="color:rgba(193,167,132)"><i class="fas fa-download"></i></a>
-  </div>
-</nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-9" style="padding:0">
+                <nav class="nav-pieces navbar custom-nav navbar-expand-lg" style="clear: both;">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarTogglerDemo01">
+                        <ul class="navbar-nav">
+                            <li class="nav-link" onclick="changecolor('black');">black</li>
+                            <li class="nav-link" onclick="changecolor('pink');">pink</li>
+                            <li class="nav-link" onclick="changecolor('purple');">purple</li>
+                            <li class="nav-link" onclick="changecolor('green');">dark green</li>
+                        </ul>
+                        <select onChange="selectFace(this.value);" style="margin-left: 20%;">
+                            <option value="">얼굴형 선택</option>
+                            <option value="circle">둥근 얼굴</option>
+                            <option value="rectangle">각진 얼굴</option>
+                            <option value="oval">계란형 얼굴</option>
+                        </select>
+                        &nbsp;&nbsp;
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'add_cart' 12 %}"><svg class="bi bi-cart3" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"  style="color:rgba(193,167,132)">
+                            <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                        </svg></a>
+                        {% else %}
+                        <a onclick="func1();"><svg class="bi bi-cart3" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"  style="color:rgba(193,167,132)">
+                            <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                        </svg></a>
+                        {% endif %}
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a id="save" onclick="partShot();" style="color:rgba(193,167,132)"><i class="fas fa-download"></i></a>
+                    </div>
+                </nav>
+                <!--<div id="pieces" style="overflow:scroll; height:600px;">-->
+                    <!--스크롤바로 처리하고싶은데 스크롤 넣으면 드래그 안먹음-->
+                    <div id="pieces">
+                    <script>
+                    change('black');
+                    </script>
+                </div>
+            </div>
+            <div class="col-3" id="col" style="padding:0; margin-left:-70px;">
+                <div class="text-center maneking" id="result"><img class='face' src='/static/img/oval.png' id='oval' width='300px'></div>
+                <br><br>
+                <div class="text-center"><button type="submit" class="btn" id="save2" onclick="partShot();">커스텀 사진 저장</button></div> <br>
+                <div class="text-center"><a href="{% url 'add_cart' 12 %}"><button type="submit" class="btn">장바구니 담기</button></a></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
 <script src="http://html2canvas.hertzen.com/dist/html2canvas.js"></script>
@@ -263,12 +317,29 @@ function PrintDiv(div){
         PrintDiv($('#all'));
     });
 
+    $("#save2").click(function(){
+        PrintDiv($('#all'));
+    });
+
     $(function(){
     $("#save").click(function() { 
         html2canvas($("#all"), {
             onrendered: function(canvas) {
                 canvas.toBlob(function(blob) {
-                    saveAs(blob, 'image.png');
+                    saveAs(blob, 'CustomHair.png');
+                });
+            }
+        });
+    });
+    });
+
+
+    $(function(){
+    $("#save2").click(function() { 
+        html2canvas($("#all"), {
+            onrendered: function(canvas) {
+                canvas.toBlob(function(blob) {
+                    saveAs(blob, 'CustomHair.png');
                 });
             }
         });
@@ -277,12 +348,7 @@ function PrintDiv(div){
 
 </script>
 
-<div id="pieces">
-    <script>
-    change('black');
-    </script>
-</div>
-</div>
+
 
 
 {% endblock content %}
