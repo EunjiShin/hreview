@@ -58,28 +58,74 @@
         margin: 10px 10% 0 10%;
     }
 
+    .hair{
+        position:relative;
+        cursor:hand;
+    }
+
     .pink{
         -webkit-filter: opacity(.7) drop-shadow(0 0 0 rgb(255, 33, 207));
         filter : opacity(.7) drop-shadow(0 0 0 rgb(255, 33, 207));
+        position:relative;
+        cursor:hand;
     }
 
     .green{
         -webkit-filter: opacity(.7) drop-shadow(0 0 0 rgb(33, 255, 33));
         filter : opacity(.7) drop-shadow(0 0 0 rgb(33, 255, 33));
+        position:relative;
+        cursor:hand;
     }
 
     .black{
         -webkit-filter: opacity(1) drop-shadow(0 0 0 rgb(0, 0, 0));
         filter : opacity(1) drop-shadow(0 0 0 rgb(0, 0, 0));
+        position:relative;
+        cursor:hand;
     }
 
     .purple{
         -webkit-filter: opacity(.7) drop-shadow(0 0 0 rgb(64, 1, 100));
         filter : opacity(.7) drop-shadow(0 0 0 rgb(64, 1, 100));
+        position:relative;
+        cursor:hand;
     }
 </style>
 
 <script>
+var dragobject= {
+    z: 0, x: 0, y: 0, offsetx : null, offsety : null, targetobj : null, dragapproved : 0,
+    initialize:function(){
+        document.onmousedown=this.drag
+        document.onmouseup=function(){this.dragapproved=0}
+    },
+    drag:function(e){
+        var evtobj=window.event? window.event : e
+        this.targetobj=window.event? event.srcElement : e.target
+        if ((this.targetobj.className=="hair") || (this.targetobj.className=="black") || (this.targetobj.className=="pink") || (this.targetobj.className=="green") || (this.targetobj.className=="purple") ){
+            this.dragapproved=1
+            if (isNaN(parseInt(this.targetobj.style.left))){this.targetobj.style.left=0}
+            if (isNaN(parseInt(this.targetobj.style.top))){this.targetobj.style.top=0}
+            this.offsetx=parseInt(this.targetobj.style.left)
+            this.offsety=parseInt(this.targetobj.style.top)
+            this.x=evtobj.clientX
+            this.y=evtobj.clientY
+            if (evtobj.preventDefault)
+                evtobj.preventDefault()
+            document.onmousemove=dragobject.moveit
+        }
+    },
+    moveit:function(e){
+        var evtobj=window.event? window.event : e
+        if (this.dragapproved==1){
+            this.targetobj.style.left=this.offsetx+evtobj.clientX-this.x+"px"
+            this.targetobj.style.top=this.offsety+evtobj.clientY-this.y+"px"
+            return false
+        }
+    }
+}
+dragobject.initialize()
+
     
 
 function func2(color){
@@ -109,59 +155,26 @@ function func2(color){
 }
 
 function changecolor(color){
-                var img = document.getElementsByClassName('hair');
-                var img1 = document.getElementsByClassName('black');
-                var img2 = document.getElementsByClassName('pink');
-                var img3 = document.getElementsByClassName('purple');
-                var img4 = document.getElementsByClassName('green');
+    var img = document.getElementsByClassName('hair');
+    var img1 = document.getElementsByClassName('black');
+    var img2 = document.getElementsByClassName('pink');
+    var img3 = document.getElementsByClassName('purple');
+    var img4 = document.getElementsByClassName('green');
 
-                if(color=="black"){
-                    func2('black');
-                }
-                else if(color == "pink"){
-                    func2('pink');
-                }
-                else if(color == "purple"){
-                    func2('purple');
-                }
-                else{
-                    func2('green');
-                }
+    if(color=="black"){
+        func2('black');
     }
-
-
-var dragobject= {
-    z: 0, x: 0, y: 0, offsetx : null, offsety : null, targetobj : null, dragapproved : 0,
-    initialize:function(){
-        document.onmousedown=this.drag
-        document.onmouseup=function(){this.dragapproved=0}
-    },
-    drag:function(e){
-        var evtobj=window.event? window.event : e
-        this.targetobj=window.event? event.srcElement : e.target
-        if ((this.targetobj.className=="hair") || (this.targetobj.className=="black") || (this.targetobj.className=="pink") || (this.targetobj.className=="purple") || (this.targetobj.className=="green")){
-            this.dragapproved=1
-            if (isNaN(parseInt(this.targetobj.style.left))){this.targetobj.style.left=0}
-            if (isNaN(parseInt(this.targetobj.style.top))){this.targetobj.style.top=0}
-            this.offsetx=parseInt(this.targetobj.style.left)
-            this.offsety=parseInt(this.targetobj.style.top)
-            this.x=evtobj.clientX
-            this.y=evtobj.clientY
-            if (evtobj.preventDefault)
-                evtobj.preventDefault()
-            document.onmousemove=dragobject.moveit
-        }
-    },
-    moveit:function(e){
-        var evtobj=window.event? window.event : e
-        if (this.dragapproved==1){
-            this.targetobj.style.left=this.offsetx+evtobj.clientX-this.x+"px"
-            this.targetobj.style.top=this.offsety+evtobj.clientY-this.y+"px"
-            return false
-        }
+    else if(color == "pink"){
+        func2('pink');
+    }
+    else if(color == "purple"){
+        func2('purple');
+    }
+    else{
+        func2('green');
     }
 }
-dragobject.initialize()
+
     
 // 얼굴형을 선택하는 함수
 function selectFace(obj) {       
