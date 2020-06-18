@@ -8,7 +8,6 @@
         position:relative;
         cursor:hand;
     }
-
     .back {
         z-index: 0;
     }
@@ -22,6 +21,24 @@
         position:relative;
         z-index: 100;
     }
+    
+    .black {
+        -webkit-filter: opacity(.8) drop-shadow(0 0 0 #000);
+        filter: opacity(.8) drop-shadow(0 0 0 #000);
+    }
+    .pink {
+         -webkit-filter: opacity(.8) drop-shadow(0 0 0 #FF008B);
+        filter: opacity(.8) drop-shadow(0 0 0 #FF008B);       
+    }
+    .purple {
+        -webkit-filter: opacity(.8) drop-shadow(0 0 0 #9F00FF);
+        filter: opacity(.8) drop-shadow(0 0 0 #9F00FF);        
+    }
+    .green {
+        -webkit-filter: opacity(.8) drop-shadow(0 0 0 #165C0F);
+        filter: opacity(.8) drop-shadow(0 0 0 #165C0F);        
+    }
+    
     .nav-pieces {
         border: 2px solid #e9e0d1;
         border-radius: 10px 10px 0 0;
@@ -65,7 +82,11 @@ var dragobject= {
     drag:function(e){
         var evtobj=window.event? window.event : e
         this.targetobj=window.event? event.srcElement : e.target
-        if ((this.targetobj.className=="drag bang") || (this.targetobj.className=="drag back") || (this.targetobj.className=="drag side")){
+        var type = this.targetobj.className
+        if ((type=="drag bang black") || (type=="drag back black") || (type=="drag side black") ||
+           (type=="drag bang pink") || (type=="drag back pink") || (type=="drag side pink") ||
+           (type=="drag bang purple") || (type=="drag back purple") || (type=="drag side purple") ||
+           (type=="drag bang green") || (type=="drag back green") || (type=="drag side green")){
             this.dragapproved=1
             if (isNaN(parseInt(this.targetobj.style.left))){this.targetobj.style.left=0}
             if (isNaN(parseInt(this.targetobj.style.top))){this.targetobj.style.top=0}
@@ -108,90 +129,78 @@ function selectFace(obj) {
 }
 
 // pieces image store
-    var black_bang = ["../../static/img/bang1.png", "../../static/img/bang2.png", "../../static/img/bang3.png", "../../static/img/bang4.png", "../../static/img/bang5.png"];
-    var black_side = ["../../static/img/side1.png", "../../static/img/side2.png", "../../static/img/side3.png", "../../static/img/side4.png", "../../static/img/side5.png"];
-    var black_back = ["../../static/img/back1.png", "../../static/img/back2.png", "../../static/img/back3.png", "../../static/img/back4.png", "../../static/img/back5.png"];
-    
-    var pink_bang =["../../static/img/bang1pink.png", "../../static/img/bang2pink.png", "../../static/img/bang3pink.png", "../../static/img/bang4pink.png", "../../static/img/bang5pink.png"];
-    var pink_side = ["../../static/img/side1pink.png", "../../static/img/side2pink.png", "../../static/img/side3pink.png", "../../static/img/side4pink.png", "../../static/img/side5pink.png"];
-    var pink_back = ["../../static/img/back1pink.png", "../../static/img/back2pink.png", "../../static/img/back3pink.png", "../../static/img/back4pink.png", "../../static/img/back5pink.png"];
-    
-    var purple_bang = ["../../static/img/bang1purple.png", "../../static/img/bang2purple.png", "../../static/img/bang3purple.png", "../../static/img/bang4purple.png", "../../static/img/bang5purple.png"];
-    var purple_side = ["../../static/img/side1purple.png", "../../static/img/side2purple.png", "../../static/img/side3purple.png", "../../static/img/side4purple.png", "../../static/img/side5purple.png"];
-    var purple_back = ["../../static/img/back1purple.png", "../../static/img/back2purple.png", "../../static/img/back3purple.png", "../../static/img/back4purple.png", "../../static/img/back5purple.png"];
-    
-    var green_bang = ["../../static/img/bang1green.png", "../../static/img/bang2green.png", "../../static/img/bang3green.png", "../../static/img/bang4green.png", "../../static/img/bang5green.png"];
-    var green_side = ["../../static/img/side1green.png", "../../static/img/side2green.png", "../../static/img/side3green.png", "../../static/img/side4green.png", "../../static/img/side5green.png"];
-    var green_back = ["../../static/img/back1green.png", "../../static/img/back2green.png", "../../static/img/back3green.png", "../../static/img/back4green.png", "../../static/img/back5green.png"];
+    var bang = ["../../static/img/bang1.png", "../../static/img/bang2.png", "../../static/img/bang3.png", "../../static/img/bang4.png", "../../static/img/bang5.png"];
+    var side = ["../../static/img/side1.png", "../../static/img/side2.png", "../../static/img/side3.png", "../../static/img/side4.png", "../../static/img/side5.png"];
+    var back = ["../../static/img/back1.png", "../../static/img/back2.png", "../../static/img/back3.png", "../../static/img/back4.png", "../../static/img/back5.png"];
     
 // 이미지 띄우는 함수
     function change(color) {
         var imageCode="";
         if(color=="black"){
-            for(var i=0; i<black_bang.length; i++) {
-                imageCode+="<img class='drag bang' src='";
-                imageCode+=black_bang[i];
+            for(var i=0; i<bang.length; i++) {
+                imageCode+="<img class='drag bang black' src='";
+                imageCode+=bang[i];
                 imageCode+="' width='300px'>";
             }
-            for(var i=0; i<black_side.length; i++) {
-                imageCode+="<img class='drag side' src='";
-                imageCode+=black_side[i];
+            for(var i=0; i<side.length; i++) {
+                imageCode+="<img class='drag side black' src='";
+                imageCode+=side[i];
                 imageCode+="' width='300px'>";
             }
-            for(var i=0; i<black_back.length; i++) {
-                imageCode+="<img class='drag back' src='";
-                imageCode+=black_back[i];
+            for(var i=0; i<back.length; i++) {
+                imageCode+="<img class='drag back black' src='";
+                imageCode+=back[i];
                 imageCode+="' width='300px'>";
             }
         }
         else if(color=="pink") {
-            for(var i=0; i<pink_bang.length; i++) {
-                imageCode+="<img class='drag bang' src='";
-                imageCode+=pink_bang[i];
+            for(var i=0; i<bang.length; i++) {
+                imageCode+="<img class='drag bang pink' src='";
+                imageCode+=bang[i];
                 imageCode+="' width='300px'>";
             }
-            for(var i=0; i<pink_side.length; i++) {
-                imageCode+="<img class='drag side' src='";
-                imageCode+=pink_side[i];
+            for(var i=0; i<side.length; i++) {
+                imageCode+="<img class='drag side pink' src='";
+                imageCode+=side[i];
                 imageCode+="' width='300px'>";
             }
-            for(var i=0; i<pink_back.length; i++) {
-                imageCode+="<img class='drag back' src='";
-                imageCode+=pink_back[i];
+            for(var i=0; i<back.length; i++) {
+                imageCode+="<img class='drag back pink' src='";
+                imageCode+=back[i];
                 imageCode+="' width='300px'>";
             }
         }
         else if(color=="purple") {
-            for(var i=0; i<purple_bang.length; i++) {
-                imageCode+="<img class='drag bang' src='";
-                imageCode+=purple_bang[i];
+            for(var i=0; i<bang.length; i++) {
+                imageCode+="<img class='drag bang purple' src='";
+                imageCode+=bang[i];
                 imageCode+="' width='300px'>";
             }
-            for(var i=0; i<purple_side.length; i++) {
-                imageCode+="<img class='drag side' src='";
-                imageCode+=purple_side[i];
+            for(var i=0; i<side.length; i++) {
+                imageCode+="<img class='drag side purple' src='";
+                imageCode+=side[i];
                 imageCode+="' width='300px'>";
             }
-            for(var i=0; i<purple_back.length; i++) {
-                imageCode+="<img class='drag back' src='";
-                imageCode+=purple_back[i];
+            for(var i=0; i<back.length; i++) {
+                imageCode+="<img class='drag back purple' src='";
+                imageCode+=back[i];
                 imageCode+="' width='300px'>";
             }
         }
         else {
-            for(var i=0; i<green_bang.length; i++) {
-                imageCode+="<img class='drag bang' src='";
-                imageCode+=green_bang[i];
+            for(var i=0; i<bang.length; i++) {
+                imageCode+="<img class='drag bang green' src='";
+                imageCode+=bang[i];
                 imageCode+="' width='300px'>";
             }
-            for(var i=0; i<green_side.length; i++) {
-                imageCode+="<img class='drag side' src='";
-                imageCode+=green_side[i];
+            for(var i=0; i<side.length; i++) {
+                imageCode+="<img class='drag side green' src='";
+                imageCode+=side[i];
                 imageCode+="' width='300px'>";
             }
-            for(var i=0; i<green_back.length; i++) {
-                imageCode+="<img class='drag back' src='";
-                imageCode+=green_back[i];
+            for(var i=0; i<back.length; i++) {
+                imageCode+="<img class='drag back green' src='";
+                imageCode+=back[i];
                 imageCode+="' width='300px'>";
             }
         }
@@ -279,9 +288,8 @@ function PrintDiv(div){
 
 <div id="pieces">
     <script>
-    change('black');
+        change('black');
     </script>
-</div>
 </div>
 
 
