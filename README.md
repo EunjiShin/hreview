@@ -4,27 +4,26 @@
 
 <hr>
 # 0. 실행
-
-##+ hreview
-##| \ + hreview
-##|   | \ + forms.py
-##|   |   + settings.py
-##|   |   + urls.py
-##|   |   + wsgi.py
-##|   |   + asgi.py
-##| \ + hyuzi
-##|   | \ + static
-##|   | \ + templates
-##|   | + admin.py
-##|   | + context_processors.py
-##|   | + models.py
-##|   | + urls.py
-##|   | + views.py
-##| \ + media
-##| \ + static
-##| \ + templates
-##| + manage.py
-##+ README.md
+## + hreview
+## | \ + hreview
+## |   | \ + forms.py
+## |   |   + settings.py
+## |   |   + urls.py
+## |   |   + wsgi.py
+## |   |   + asgi.py
+## | \ + hyuzi
+## |   | \ + static
+## |   | \ + templates
+## |   | + admin.py
+## |   | + context_processors.py
+## |   | + models.py
+## |   | + urls.py
+## |   | + views.py
+## | \ + media
+## | \ + static
+## | \ + templates
+## | + manage.py
+## + README.md
 
 
 # 1. 프로젝트 계층
