@@ -1,5 +1,5 @@
-# 오픈소스 웹 소프트웨어
-> 2020년 1학기 나스리디노프 아지즈 교수님 term project <br>
+# HREVIEW
+> 2020년 1학기 나스리디노프 아지즈 교수님 오픈소스 웹 소프트웨어 과목 term project <br>
 ! 이 프로젝트는 django와 Python 등 개발환경이 갖춰져있다는 전제 하에 사용할 수 있습니다. !
 
 <hr>
@@ -91,9 +91,10 @@ http://127.0.0.1:8000 는 요건 project의 settings.py에서 ALLOWED_HOSTS를 �
 # 4. 관리자 페이지
 ## 4-1. django admin
 
-urls.py를 보면 **path('admin/', admin.site.urls)** 라는 admin 경로가 . <br>
-제가 만든게 아니라 프로젝트 urls.py에 처음부터 있던 . 장고는 관리자 페이지를 통해서 모델을 보고 업데이트하고 삭제할 수 있게 해줍니다 . <br>
-settings.py에서 한글로 보이도록 수정해두었습니당. 프론트만 만질거면 쓸 일이 없긴 할건데 혹시 궁금할까바 적어둡니다~ <br>
+urls.py를 보면 **path('admin/', admin.site.urls)** 라는 admin 경로가 있습니다. <br>
+제가 만든게 아니라 프로젝트 urls.py에 처음부터 있던 경로로, 장고가 지원하는 관리자 페이지를 나타냅니다.<br>
+이 관리자 페이지에서 모델에 데이터를 추가하거나 삭제, 수정하는 등의 작업을 할 수 있습니다.<br>
+
 url대로 http://127.0.0.1:8000/admin을 입력하면 들어갈 수 있는데, 아마 관리자 권한이 필요할거에요. <br>
 
 <img width="321" alt="super" src="https://user-images.githubusercontent.com/38103085/81607209-48802780-940f-11ea-8fab-eb238556923b.png"><br>
