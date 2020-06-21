@@ -5,16 +5,15 @@
 <hr>
 
 # 실행
-> 아래 경로를 참고하여, 제일 상단 hreview으로 이동한 후, **python manage.py runserver** 명령어를 입력해주세요.
-> runserver 이후, url 경로에 **http://127.0.0.1:8000/hyuzi/** 를 입력하여 웹 서비스를 이용할 수 있습니다.
+> 아래 경로를 참고하여, 제일 상단 hreview으로 이동해 주세요. <br>
+> cmd 창에 **python manage.py runserver** 명령어를 입력해주세요. <br> 
+> runserver 이후, url 경로에 **http://127.0.0.1:8000/hyuzi/** 를 입력하여 웹 서비스를 이용할 수 있습니다. <br>
         
         + hreview  <br>
         | \ + hreview  <br>
         |   | \ + forms.py <br>
         |   |   + settings.py <br>
         |   |   + urls.py <br>
-        |   |   + wsgi.py <br>
-        |   |   + asgi.py <br>
         | \ + hyuzi <br>
         |   | \ + static <br>
         |   | \ + templates <br>
@@ -29,6 +28,16 @@
         | + manage.py <br>
         + README.md <br>
         
+        
+# 실행 화면
+> 메인 페이지 <br>
+> 로그인, 회원가입 페이지 <br>
+> mypage <br>
+> store 페이지 <br>
+> best 페이지 <br>
+> custom 페이지 <br>
+> cart 페이지 <br>
+
 
 
 # 1. 프로젝트 계층
