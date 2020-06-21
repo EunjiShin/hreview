@@ -94,16 +94,10 @@ http://127.0.0.1:8000 는 요건 project의 settings.py에서 ALLOWED_HOSTS를 �
 urls.py를 보면 **path('admin/', admin.site.urls)** 라는 admin 경로가 있습니다. <br>
 제가 만든게 아니라 프로젝트 urls.py에 처음부터 있던 경로로, 장고가 지원하는 관리자 페이지를 나타냅니다.<br>
 이 관리자 페이지에서 모델에 데이터를 추가하거나 삭제, 수정하는 등의 작업을 할 수 있습니다.<br>
-
-url대로 http://127.0.0.1:8000/admin을 입력하면 들어갈 수 있는데, 아마 관리자 권한이 필요할거에요. <br>
+해당 페이지가 한글로 보이도록 설정해 둔 상태이니 필요할 경우 url대로 http://127.0.0.1:8000/admin을 입력해서 접속해주세요.<br>
+단 해당 관리자 페이지를 사용하기 위해선 관리자 권한이 필요합니다.<br>
 
 <img width="321" alt="super" src="https://user-images.githubusercontent.com/38103085/81607209-48802780-940f-11ea-8fab-eb238556923b.png"><br>
 
-runserver 했던 것 처럼, manage.py 경로로 이동해서 **python manage.py createsuperuser** 명령어를 입력해서 관리자 계정을 만들 수 있어요.<br>
-보이는 것처럼 성공적으로 생성된 후 admin 페이지에 접속하면 들어갈 수 있을겁니당. 
-
-
-<hr>
-대충 프로젝트 실행할 때 필요할 것 같은 것들을 적어뒀는데, 혹시 궁금한게 있으면 카톡하면 댑니당~~ <br>
-근데 새벽에 뇌빼고 적고있어서ㅋㅋㅋㅋ 오타잇음 미안..... 잘 안돼면 언제든 무러바..... <br>
-구럼 우리 모두 화이팅합시다~~ 안뇽안뇽!
+runserver 했던 것 처럼, manage.py 경로로 이동해서 **python manage.py createsuperuser** 명령어를 입력해서 관리자 계정을 만들 수 있습니다.<br>
+사진처럼 새로운 관리자 계정을 생성한 후 admin 페이지에 접속하면 관리자 페이지를 사용할 수 있습니다.
