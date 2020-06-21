@@ -3,6 +3,29 @@
 ! 이 프로젝트는 django와 Python 등 개발환경이 갖춰져있다는 전제 하에 사용할 수 있습니다. !
 
 <hr>
+# 0. 실행
+
++ hreview
+| \ + hreview
+|   | \ + forms.py
+|   |   + settings.py
+|   |   + urls.py
+|   |   + wsgi.py
+|   |   + asgi.py
+| \ + hyuzi
+|   | \ + static
+|   | \ + templates
+|   | + admin.py
+|   | + context_processors.py
+|   | + models.py
+|   | + urls.py
+|   | + views.py
+| \ + media
+| \ + static
+| \ + templates
+| + manage.py
++ README.md
+
 
 # 1. 프로젝트 계층
 ## 1-1. 프로젝트 폴더
