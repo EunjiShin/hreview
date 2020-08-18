@@ -49,7 +49,7 @@ Link : [Template](http://pythonstudy.xyz/python/article/307-Django-%ED%85%9C%ED%
 => 템플릿마다 공통적으로 반복되는 부분을 묶어둔 파일입니다. <br>
 예를 들어, nav바나 footer같이 모든 페이지에 공통적으로 들어갈 요소를 html 파일마다 적는 건 불필요한 작업이고, 코드도 길어지게 됩니다.
 그래서 이런 반복되는 것들을 묶어 base.html이라는 파일에 넣고, 이후 다른 template들엔 이 base.html을 로드하는 형식으로 작업하여 작업 능률을 높일 수 있습니다. <br>
-물론 base가 아니라 다른 이름으로 해도 됩니다! 만든 후, 템플릿 제일 상단에 {% extends "base.html" %} 처럼 추가하는 형식을 기억해주세요.<br>
+물론 base가 아니라 다른 이름으로 해도 됩니다! 만든 후, 템플릿 제일 상단에 ```{% extends "base.html" %}``` 처럼 추가하는 형식을 기억해주세요.<br>
 현재 navbar만 추가된 상태로, 이후 점점 추가하면 됩니다. bootstrap을 쓰기위한 링크들도 전부 여기 있습니다.
 
 <hr>
